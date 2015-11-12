@@ -28,8 +28,16 @@ Edit config.js file.
 - demo_host: host where this demo server is running
 - https: true/false depending on if you want to use ssl
 
-Then copy 'nuve.js' from licode/nuve/nuveClient/dist to licode-demos/models/
-and copy 'erizo.js' from licode/erizo_controller/erizoClient/dist/ to licode-demos/public/javascripts
+Then copy *nuve.js*
+<pre>
+from licode/nuve/nuveClient/dist to licode-demos/models/
+</pre>
+
+and copy *erizo.js*
+
+<pre>
+from licode/erizo_controller/erizoClient/dist/ to licode-demos/public/javascripts
+</pre>
 
 ### How to run
 
@@ -39,7 +47,7 @@ node app.js
 
 ### How to use
 
-The index page of the application shows the available rooms in the service. To manage rooms you can use the admin panel in demo_host/admin (authenticating with the service credentials). Each type of demo has its own description of what it does. 
+The index page of the application shows the available rooms in the service. To manage rooms you can use the admin panel in *http://demo_host/admin* (authenticating with the service credentials). Each type of demo has its own description of what it does. 
 
 ### How to configure HTTPS
 
