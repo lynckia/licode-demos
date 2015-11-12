@@ -15,7 +15,7 @@ DEMO.init_demo = function (my_name) {
         for (var index in streams) {
           var stream = streams[index];
           if (localStream.getID() !== stream.getID()) {
-            room.subscribe(stream);
+            room.subscribe(stream, {audio:true, video: false});
           }
         }
       };
