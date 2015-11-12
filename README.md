@@ -42,7 +42,7 @@ from licode/erizo_controller/erizoClient/dist/ to licode-demos/public/javascript
 ### How to run
 
 <pre>
-node app.js
+sudo npm start
 </pre>
 
 ### How to use
