@@ -5,7 +5,7 @@ config.service = {};
 config.service.id ='';
 config.service.key = '';
 
-config.demo_host = '';
+config.demo_host = ''; // Without "http", just the host.
 config.https = false;
 
 //config.plain = true;

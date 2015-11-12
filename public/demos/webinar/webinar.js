@@ -5,7 +5,7 @@ DEMO.init_demo = function (my_name) {
   teacher = getParameterByName('mode') === 'presenter';
 
   if (teacher) {
-    screen_stream = Erizo.Stream({screen: screen});
+    screen_stream = Erizo.Stream({screen: true});
     localStream = Erizo.Stream({audio: true, video: true, data: true, screen: false, attributes: {name: my_name}});
   
     DEMO.chat_stream = localStream;

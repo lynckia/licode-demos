@@ -1,6 +1,6 @@
 ## Licode demos
 
-This is a set of demos tu test Licode project.
+This is a set of demos to test Licode project.
 
 You will find all the information about Licode [here](http://lynckia.com/licode/)
 
@@ -54,6 +54,7 @@ The index page of the application shows the available rooms in the service. To m
 You have to enable https in config file. and create the SSL certs: 
 
 <pre>
+mkdir cert
 cd cert
 openssl genrsa -out key.pem 2048
 openssl req -new -sha256 -key key.pem -out csr.pem
