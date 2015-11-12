@@ -12,10 +12,12 @@ You will find all the information about Licode [here](http://lynckia.com/licode/
 
 ### How to install
 
- git clone https://github.com/ging/licode-demos.git
- cd licode-demos
- npm install
- cp config.js.template config.js
+<pre>
+git clone https://github.com/ging/licode-demos.git
+cd licode-demos
+npm install
+cp config.js.template config.js
+</pre>
 
 ### How to configure
 
@@ -31,7 +33,9 @@ and copy 'erizo.js' from licode/erizo_controller/erizoClient/dist/ to licode-dem
 
 ### How to run
 
- node app.js
+<pre>
+node app.js
+</pre>
 
 ### How to use
 
@@ -41,10 +45,12 @@ The index page of the application shows the available rooms in the service. To m
 
 You have to enable https in config file. and create the SSL certs: 
 
- cd cert
- openssl genrsa -out key.pem 2048
- openssl req -new -sha256 -key key.pem -out csr.pem
- openssl x509 -req -in csr.pem -signkey key.pem -out cert.pem
+<pre>
+cd cert
+openssl genrsa -out key.pem 2048
+openssl req -new -sha256 -key key.pem -out csr.pem
+openssl x509 -req -in csr.pem -signkey key.pem -out cert.pem
+</pre>
 
 ### License
 
