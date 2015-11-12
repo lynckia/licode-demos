@@ -1,0 +1,78 @@
+<% include partials/demo/top %>
+
+<% if (!plain) { %>
+
+<% include partials/demo/navBar %>
+
+<header class="jumbotron subhead" id="overview">
+  <div class="container">
+    <h1>Try it!</h1>
+    <p class="lead">Some demo rooms to try the posibilities of Licode.</p>
+  </div>
+</header>
+
+<%}%>
+
+  <div id="container_demopanel" class="container">
+
+        <div class="row">
+          <% 
+          for(var r in rooms) {
+            if(r % 3 === 0 && r != 0) {
+          %>
+          </div>
+          <div class="page-header"></div>
+          <div class="row">
+          <% 
+            }
+          %>
+            <div class="span4">
+              <div class="room_element">
+                <% 
+                if(rooms[r].p2p) {
+                %>
+                <img class="p2p_image" alt="p2p" title="Peer-to-peer room" src="/images/p2p.png">
+                <% 
+                }
+                if(rooms[r].data.type === 'screen' || rooms[r].data.type === 'screenaudio' || rooms[r].data.type === 'only_screen' || rooms[r].data.type === 'webinar') {
+                %>
+                <a class="room_element_icon" href="https://<%= host %>/room?id=<%= rooms[r]._id %>">
+                  <img class="media-object demo_image" alt="Licode demo" src="/demos/<%=rooms[r].data.type%>/<%=rooms[r].data.type%>.jpg">
+                </a>
+                <div class="room_element_body">
+                  <h4 class="media-heading"><a class="a_custom" href="https://<%= host %>/room?id=<%= rooms[r]._id %>"><%= rooms[r].name %></a></h4>
+                  <%= rooms[r].description %>
+                </div>
+                <% 
+                } else {
+                %>
+                <a class="room_element_icon" href="/room?id=<%= rooms[r]._id %>">
+                  <img class="media-object demo_image" alt="Licode demo" src="/demos/<%=rooms[r].data.type%>/<%=rooms[r].data.type%>.jpg">
+                </a>
+                <div class="room_element_body">
+                  <h4 class="media-heading"><a class="a_custom" href="/room?id=<%= rooms[r]._id %>"><%= rooms[r].name %></a></h4>
+                  <%= rooms[r].description %>
+                </div>
+                <% 
+                }
+                %>
+                  
+              </div>
+            </div>
+          <% 
+          }
+          %>
+
+        </div>
+
+    </div>
+
+  </div>
+
+<% if (!plain) { %>
+
+<% include partials/demo/footer %>
+
+<%}%>
+
+<% include partials/demo/bottom %>

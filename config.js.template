@@ -1,0 +1,13 @@
+var config = {};
+
+config.nuve_host = '';
+config.service = {};
+config.service.id ='';
+config.service.key = '';
+
+config.demo_host = '';
+config.https = false;
+
+//config.plain = true;
+
+module.exports = config;

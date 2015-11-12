@@ -1,0 +1,84 @@
+<% include partials/demo/top %>
+
+<% if (!plain) { %>
+
+<% include partials/demo/navBar %>
+
+<%}%>
+
+    <div id="container_demo" class="container">
+
+      <% if (!plain) { %>
+      <div id="images_tablet" class="row hidden-desktop">
+        <img src="/images/star.svg" id="star_logo_demo"/>
+        <img src="/images/licode.svg" id="licode_logo_demo"/>
+      </div>
+      <%}%>
+
+      <div class="row">
+        <div id="video_grid" class="span9">
+
+            <%- body %>
+
+        </div>
+
+        <div id="chat" class="span3 visible-desktop">
+
+          <% if (!plain) { %>
+          <img src="/images/star.svg" id="star_logo_demo"/>
+          <img src="/images/licode.svg" id="licode_logo_demo"/>
+          <%}%>
+
+          <div id="chat_switcher">
+            <p class="switch_button active" id="chat_button">Chat</p>
+            <p class="switch_button" id="users_button">Users</p>
+          </div>
+          <div id="chat_body_container">
+            <div id="chat_body" <% if (plain) { %>class="plain"<%}%>></div>
+          </div>
+          <div id="chat_message_container">
+            <input id="chat_message" name="mensaje" rows="1" placeholder="Chat message">
+          </div>
+          <div id="users_list_container">
+            <div id="users_list"></div>
+          </div>
+          
+        </div>
+      </div>
+
+      <div class="modal" id="connection_panel">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close close_button" aria-hidden="true">&times;</button>
+              <h4 class="modal-title">Connect to the demo</h4>
+            </div>
+            <div class="modal-body">
+              <p>Please, enter your name:</p>
+              <input type="text" id="username_txt" placeholder="Username">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default  close_button">Cancel</button>
+              <button id="connect_button" type="button" class="btn btn-primary">Connect</button> 
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </div>
+
+  </div>
+
+
+<script type="text/javascript" src="/javascripts/erizo.js"></script>
+<script type="text/javascript" src="/javascripts/demoTemplate.js"></script>
+<script type="text/javascript" src="/demos/<%= demo %>/<%= demo %>.js"></script>
+<link href='/stylesheets/demoTemplate.css' rel='stylesheet'/>
+<link rel='stylesheet' href='/demos/<%= demo %>/<%= demo %>.css'/>
+
+<% if (!plain) { %>
+
+<% include partials/demo/footer %>
+
+<%}%>
+<% include partials/demo/bottom %>

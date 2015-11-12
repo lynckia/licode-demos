@@ -1,0 +1,6 @@
+models/nuve.js
+node_modules
+cert/key.pem
+cert/cert.pem
+config.js
+public/javascripts/erizo.js

@@ -1,0 +1,109 @@
+<% include partials/management/top %>
+
+<form class="text-right" role="form" action="/admin/logout" method="get">
+	<button type="submit" class="btn btn-link">Logout</button>
+</form>
+
+<div class="page-header">
+	<h4> Create New Demo Room </h4>
+</div>
+
+<form class="form-inline" role="form" action="/admin/rooms" method="post">
+	<div class="row">
+
+		<div class="form-group col-md-4">
+			<input type="text" class="form-control" placeholder="Room name" required="" name="name">
+		</div>
+		<label class= "col-md-2">
+		 	<select class="form-control" name="type">
+				<option value="videoconference">Video Conference</option>
+				<option value="audioconference">Audio Conference</option>
+				<option value="screen">Screen Sharing</option>
+				<option value="screenaudio">Screen Sharing (audio)</option>
+				<option value="classroomaudio">Class Room (students audio)</option>
+				<option value="classroom_moderator">Class Room (teacher moderator)</option>
+				<option value="only_screen">Only Screen</option>
+				<option value="webinar">Webinar</option>
+			</select>
+		</label>
+		<div class="checkbox col-md-2">
+			<label>
+				<input type="checkbox" name="public"> Public
+			</label>
+		</div>
+		<div class="checkbox col-md-2">
+			<label>
+				<input type="checkbox" name="p2p"> Peer-to-peer
+			</label>
+		</div>
+	  <button type="submit" class="btn btn-primary col-md-1">Create</button>
+  </div>
+</form>
+
+<div class="page-header">
+    <h4> Demo Rooms List </h4>
+</div>
+
+<table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>P2P</th>
+            <th>Public</th>
+            <th>URL</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% for(var r in rooms) {
+        	rooms[r].data = rooms[r].data || {};%>
+			<tr>
+	            <td><%= rooms[r]._id %></td>
+	            <td><%= rooms[r].name %></td>
+	            <td><%= rooms[r].data.type %></td>
+	            <%if(rooms[r].p2p ) {%>
+	            <td><%= rooms[r].p2p %></td>
+	            <%} else { %>
+	            <td>false</td>
+	            <%}%>
+	            <td><%= rooms[r].data.public %></td>
+	            <%if(rooms[r].data.public) {
+	            	if(rooms[r].data.type === 'screen' || rooms[r].data.type === 'screenaudio' || rooms[r].data.type === 'only_screen' || rooms[r].data.type === 'webinar') {
+	            %>
+	            <td><a href="https://<%= host %>/room?id=<%= rooms[r]._id %>" target="_blank">licode</a></td>
+	            <%
+		            } else {
+		        %>
+		        <td><a href="/room?id=<%= rooms[r]._id %>" target="_blank">licode</a></td>
+		        <%
+	            	}
+	            } else {
+	            %>
+	            <td>
+	            	<a href="http://lynckia.com/?id=<%= rooms[r]._id %>" target="_blank">lynckia</a>
+	            	<%if(rooms[r].data.type === 'screen' || rooms[r].data.type === 'screenaudio' || rooms[r].data.type === 'only_screen' || rooms[r].data.type === 'webinar') {
+	            	%>
+	            	<a href="https://<%= host %>/room?id=<%= rooms[r]._id %>" target="_blank">licode</a>
+	            	<%
+		            } else {
+		            %>
+		            <a href="/room?id=<%= rooms[r]._id %>" target="_blank">licode</a>
+		            <%
+	            	}
+	            	%>
+	            </td>
+	            <%
+	            }
+	            %>
+	            
+	            <td>
+	            	<form action="/admin/rooms/<%= rooms[r]._id %>" method="get">
+	            		<button type="submit" class="btn btn-danger">Delete</button></td>
+  					</form>
+	          </tr>
+		<% } %>
+        </tbody>
+      </table>
+
+<% include partials/management/bottom %>

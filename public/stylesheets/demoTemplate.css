@@ -1,0 +1,213 @@
+.fill {
+    height: 100%
+}
+
+#chat {
+    position: relative;
+    height: 550px;
+}
+
+#video_grid {
+    height: 550px;
+    border: 1px solid #012C79;
+    margin-left: 0px;
+}
+
+#username_txt {
+    padding-left: 3px;
+}
+
+#chat_switcher {
+    background-color: #012C79;
+    position: absolute;
+    bottom: 424px;
+    top: 100px;
+    border: 1px solid #012C79;
+    width: 100%;
+    font-size: 14px;
+    text-align: center;
+    padding-top: 2px;
+}
+
+.switch_button {
+    float: left;
+    width: 50%;
+    cursor: pointer;
+    color: white;
+    opacity: 0.8;
+}
+
+.switch_button.active {
+    font-weight: bold;
+    color: white;
+    opacity: 1;
+}
+
+#chat_button {
+
+}
+
+#users_button {
+
+}
+
+#users_list_container {
+    background-color: white;
+    position: absolute;
+    bottom: 0px;
+    top: 125px;
+    border: 1px solid #012C79;
+    width: 100%;
+    display: none;
+}
+
+#users_list {
+    position: absolute;
+    bottom: 10px;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    overflow-y: auto;
+    font-size: 14px;
+}
+
+.icon-user {
+    padding-right: 10px;
+}
+
+#chat_body_container {
+    background-color: white;
+    position: absolute;
+    bottom: 41px;
+    top: 125px;
+    border: 1px solid #012C79;
+    width: 100%;
+}
+
+#chat_body {
+    position: absolute;
+    bottom: 10px;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    padding-bottom: auto;
+    font-size: 14px;
+    overflow-y: auto;
+}
+
+#chat_body.plain {
+    top: 0px;
+}
+
+#chat_message_container {
+    position: absolute;
+    bottom: 0px;
+    top: 508px;
+    border: 1px solid #012C79;
+    width: 100%;
+}
+
+#chat_message {
+    position: absolute;
+    bottom: 0px;
+    top: 0px;
+    left: 10px;
+    width: 90%;
+    font-size: 14px;
+    border: none
+}
+
+#chat_message:focus {
+    outline: 0;
+}
+
+#images_tablet {
+    height: 90px;
+}
+
+#licode_logo_demo {
+    position: absolute;
+    height: 70px;
+    margin-left: 100px;
+}
+
+#star_logo_demo {
+    position: absolute;
+    height: 70px;
+    margin-left: 20px;
+}
+
+#back_icon {
+    position: absolute;
+    height: 20px;
+    cursor: pointer;
+    left: 10px;
+    padding-top: 75px;
+}
+
+.grid_element_border {
+    float: left;
+    position: relative;
+    background-color: #012C79;
+}
+.grid_element {
+    position: absolute;
+    bottom: 1px;
+    top: 1px;
+    right: 1px;
+    left: 1px;
+}
+
+.chat_name {
+    font-weight: bold;
+    float: left;
+    padding-right: 3px;
+}
+
+.chat_italic {
+    font-style: italic;
+}
+
+
+
+#container_demo {
+    padding-top: 75px;
+}
+
+@-webkit-keyframes interm {
+  from { box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25), 0 2px 10px rgba(0,68,204,.5); }
+  50% {  box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25), 0 2px 25px rgba(0,68,204,.9); }
+  to {   box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25), 0 2px 10px rgba(0,68,204,.5); }
+}
+@-moz-keyframes interm {
+  from { box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25), 0 2px 10px rgba(0,68,204,.5); }
+  50% {  box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25), 0 2px 25px rgba(0,68,204,.9); }
+  to {   box-shadow: inset 0 1px 0 rgba(255,255,255,.1), 0 1px 5px rgba(0,0,0,.25), 0 2px 10px rgba(0,68,204,.5); }
+}
+
+.intermittent {
+    animation: interm 3s infinite;
+    -moz-animation: interm 3s infinite;
+    -webkit-animation: interm 3s infinite;
+    -o-animation: interm 3s infinite;
+    -ms-animation: interm 3s infinite;
+}
+
+@-webkit-keyframes zoom {
+  from { -webkit-transform: scale(1); }
+  50% { -webkit-transform: scale(1.5); }
+  to { -webkit-transform: scale(1); }
+}
+@-moz-keyframes zoom {
+  from { -moz-transform: scale(1); }
+  50% {  -moz-transform: scale(1.5); }
+  to {   -moz-transform: scale(1); }
+}
+
+.autozoom {
+    animation: zoom 3s infinite;
+    -moz-animation: zoom 3s infinite;
+    -webkit-animation: zoom 3s infinite;
+    -o-animation: zoom 3s infinite;
+    -ms-animation: zoom 3s infinite;
+}

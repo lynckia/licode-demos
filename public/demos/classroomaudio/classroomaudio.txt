@@ -1,0 +1,1 @@
+Teacher video + students audioconference. Teacher can publish his/her video and listen the students. Students will see the teacher and listen between them.
