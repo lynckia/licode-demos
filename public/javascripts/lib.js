@@ -127,8 +127,8 @@ L_SESSION.resizeGrid = function() {
     if (height < 100) {
       height = 560;
     }
-    var _ratio = 16/9;
-    var GAP = 5;
+    var _ratio = 4/3;
+    var GAP = 75;
     var _mantain = true;
     var _halign = "center";
     var _valign = "center";

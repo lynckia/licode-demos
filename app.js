@@ -53,15 +53,16 @@ app.get('/room', public.room);
 app.get('/roomtype', public.room_type);
 app.post('/token', rest.createToken);
 
-app.all('/admin/login', admin.login);
 
-app.all('/admin', admin.auth);
-
-app.get('/admin', admin.admin);
-app.post('/admin/rooms', rest.createRoom);
+app.get('/admin/login', admin.login);
+app.post('/admin/login', admin.login);
+app.get('/admin', admin.auth, admin.admin);
+app.post('/admin/rooms', admin.auth, rest.createRoom);
 // Fake delete
-app.get('/admin/rooms/:room', rest.deleteRoom);
+app.get('/admin/rooms/:room', admin.auth, rest.deleteRoom);
 app.get('/admin/logout', admin.logout);
+
+app.get('/room_spy', admin.auth, public.spy_room);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

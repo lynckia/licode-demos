@@ -60,6 +60,19 @@ exports.room = function(req, res){
 	}
 };
 
+exports.spy_room = function(req, res){
+	if (req.query.id) {
+		rooms.get(req.query.id, {id: service.id, key: service.key}, function(room){
+			res.render('spy', {title: 'Licode', demo: 'spy'});
+		}, function() {
+			res.redirect('/');
+		});
+
+	} else {
+		res.redirect('/');
+	}
+};
+
 exports.room_type = function(req, res){
 	if (req.query.id) {
 		rooms.get(req.query.id, {id: service.id, key: service.key}, function(room){

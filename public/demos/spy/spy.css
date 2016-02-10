@@ -1,0 +1,12 @@
+#video_layout{
+	height: 700px;
+	position: relative;
+}
+
+#container_demo {
+	width: 90% !important;
+}
+
+body {
+	background-color: #D8E5F7;
+}
