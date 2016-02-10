@@ -5,6 +5,7 @@
 
 #container_demo {
 	width: 90% !important;
+	padding-top: 0;
 }
 
 body {
