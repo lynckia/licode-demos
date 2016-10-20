@@ -3,7 +3,7 @@ var localStream, room, screen_stream;
 DEMO.init_demo = function (my_name) {
 
   var screen = true;
-  screen_stream = Erizo.Stream({screen: screen});
+  screen_stream = Erizo.Stream({screen: screen, attributes: {name: my_name + ' Screen'}});
   localStream = Erizo.Stream({audio: true, video: true, data: true, screen: false, attributes: {name: my_name}});
   DEMO.chat_stream = localStream;
   

@@ -256,16 +256,17 @@ L_SESSION.fullScreen = function (id) {
 	remove_all_divs();
 	var remoteStreams = L_SESSION.displayed;
 	for (var r in remoteStreams) {
+		console.log(remoteStreams[r].getID(), id);
 		if (remoteStreams[r].getID() === id) {
 			L_SESSION.add_div_to_grid(remoteStreams[r].getID(), 'main');
 			remoteStreams[r].play(remoteStreams[r].getID());
-			L_SESSION.rewriteBar(remoteStreams[r].getID(), remoteStreams[r].getAttributes().username, false, true);
+			L_SESSION.rewriteBar(remoteStreams[r].getID(), remoteStreams[r].getAttributes().name, false, true);
 		}
 
 		if (remoteStreams[r].getID() !== id && L_SESSION.localStream.getID() !== remoteStreams[r].getID()) {
 			L_SESSION.add_div_to_grid(remoteStreams[r].getID(), 'mini');
 			remoteStreams[r].play(remoteStreams[r].getID());
-			L_SESSION.rewriteBar(remoteStreams[r].getID(), remoteStreams[r].getAttributes().username);
+			L_SESSION.rewriteBar(remoteStreams[r].getID(), remoteStreams[r].getAttributes().name);
 		}
 	}
 
@@ -281,7 +282,7 @@ L_SESSION.regularScreen = function () {
 		if (L_SESSION.localStream.getID() !== remoteStreams[r].getID()) {
 			L_SESSION.add_div_to_grid(remoteStreams[r].getID());
 			remoteStreams[r].play(remoteStreams[r].getID());
-			L_SESSION.rewriteBar(remoteStreams[r].getID(), remoteStreams[r].getAttributes().username);
+			L_SESSION.rewriteBar(remoteStreams[r].getID(), remoteStreams[r].getAttributes().name);
 		}
 	}
 

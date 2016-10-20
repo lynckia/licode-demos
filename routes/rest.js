@@ -7,6 +7,8 @@ exports.createToken = function(req, res){
     var username = req.body.username;
     var role = req.body.role;
 	tokens.create(roomId, username, role, {id: service.id, key: service.key}, function(token){
+
+		console.log('eieieiie', token);
 		res.send(token);
 	}, function(e) {	
 		console.log('nonon ', e);

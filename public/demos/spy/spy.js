@@ -4,6 +4,9 @@ DEMO.init_demo = function (my_name) {
 
   var screen = getParameterByName("screen");
   L_SESSION.displayed = {};
+  // we have not localstream but it will be used in several checks
+  L_SESSION.localStream = {};
+  L_SESSION.localStream.getID = function() {return 'undefined'};
 
   DEMO.create_token(my_name, "presenter", function (response) {
     var token = response;
@@ -30,6 +33,7 @@ DEMO.init_demo = function (my_name) {
       L_SESSION.add_div_to_grid('video' + stream.getID(), 'main');
       stream.play('video' + stream.getID());
       L_SESSION.displayed[stream.getID()] = stream;
+      L_SESSION.rewriteBar(stream.getID(), stream.getAttributes().name);
     });
 
     room.addEventListener("stream-added", function (streamEvent) {
@@ -42,7 +46,6 @@ DEMO.init_demo = function (my_name) {
       // Remove stream from DOM
 
       var stream = streamEvent.stream;
-      console.log('remooooooooooo', stream.elementID);
       if (stream.elementID !== undefined) {
         L_SESSION.remove_div_from_grid(stream.elementID);
       }

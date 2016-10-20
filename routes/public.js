@@ -61,6 +61,7 @@ exports.room = function(req, res){
 };
 
 exports.spy_room = function(req, res){
+	console.log(req.query.id);
 	if (req.query.id) {
 		rooms.get(req.query.id, {id: service.id, key: service.key}, function(room){
 			res.render('spy', {title: 'Licode', demo: 'spy'});

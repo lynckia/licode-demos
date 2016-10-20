@@ -1,6 +1,17 @@
-#video_layout{
+#video_layout {
 	height: 700px;
 	position: relative;
+}
+
+#mini_video_layout {
+	height: 100px;
+	position: relative;
+}
+
+.mini_video {
+	height: 100px;
+	width: 100px;
+	float: left;
 }
 
 #container_demo {
@@ -10,4 +21,52 @@
 
 body {
 	background-color: #D8E5F7;
+}
+
+.subbar {
+	background-color: rgba(0, 0, 0, 0.4) !important;
+	height: 100% !important;
+	max-height: none !important;
+}
+
+.speaker {
+	width: 23px !important;
+    height: 19px !important;
+    right: none !important;
+    left: 37px;
+    bottom: 7px;
+}
+
+.bar_tool.fa-play, .bar_tool.fa-pause {
+	color: white;
+	position: absolute;
+	left: 13px;
+	bottom: 10px;
+}
+
+.bar_tool.fa-microphone, .bar_tool.fa-microphone-slash {
+	color: white;
+	position: absolute;
+	left: 35px;
+	bottom: 10px;
+}
+
+.bar_tool.fa-expand, .bar_tool.fa-compress {
+	color: white;
+	position: absolute;
+	right: 15px;
+	bottom: 10px;
+}
+
+.bar_tool {
+	cursor: pointer;
+}
+
+.username_lab {
+	color: white;
+	position: absolute;
+	left: 13px;
+	top: 10px;
+	font-size: 12px;
+	margin-top: 0 !important;
 }
