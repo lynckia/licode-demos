@@ -6,6 +6,9 @@ DEMO.init_demo = function (my_name) {
   L_SESSION.displayed = {};
   // we have not localstream but it will be used in several checks
   L_SESSION.localStream = {};
+
+  L_SESSION.screens_always_in_mini = true;
+
   L_SESSION.localStream.getID = function() {return 'undefined'};
 
   DEMO.create_token(my_name, "presenter", function (response) {
@@ -30,7 +33,10 @@ DEMO.init_demo = function (my_name) {
 
     room.addEventListener("stream-subscribed", function(streamEvent) {
       var stream = streamEvent.stream;
-      L_SESSION.add_div_to_grid('video' + stream.getID(), 'main');
+      
+      if (stream.hasScreen()) L_SESSION.add_div_to_grid('video' + stream.getID(), 'mini');
+      else L_SESSION.add_div_to_grid('video' + stream.getID(), 'main');
+
       stream.play('video' + stream.getID());
       L_SESSION.displayed[stream.getID()] = stream;
       L_SESSION.rewriteBar(stream.getID(), stream.getAttributes().name);

@@ -280,7 +280,11 @@ L_SESSION.regularScreen = function () {
 	var remoteStreams = L_SESSION.displayed;
 	for (var r in remoteStreams) {
 		if (L_SESSION.localStream.getID() !== remoteStreams[r].getID()) {
-			L_SESSION.add_div_to_grid(remoteStreams[r].getID());
+			if (remoteStreams[r].hasScreen() && L_SESSION.screens_always_in_mini) {
+				L_SESSION.add_div_to_grid(remoteStreams[r].getID(), 'mini');
+			} else {
+				L_SESSION.add_div_to_grid(remoteStreams[r].getID());
+			}
 			remoteStreams[r].play(remoteStreams[r].getID());
 			L_SESSION.rewriteBar(remoteStreams[r].getID(), remoteStreams[r].getAttributes().name);
 		}
