@@ -1,4 +1,4 @@
-.fill {
+ .fill {
     height: 100%
 }
 
@@ -210,4 +210,9 @@
     -webkit-animation: zoom 3s infinite;
     -o-animation: zoom 3s infinite;
     -ms-animation: zoom 3s infinite;
+}
+
+.modal{
+    border-radius: 0;
+    top: 65%;
 }

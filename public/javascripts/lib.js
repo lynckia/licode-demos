@@ -251,7 +251,7 @@ var resizeRemotes = function () {
 	}
 }
 
-L_SESSION.fullScreen = function (id) {
+L_SESSION.fullScreen = function (id, fixed) {
 	fullScreen = true;
 	remove_all_divs();
 	var remoteStreams = L_SESSION.displayed;
@@ -260,13 +260,13 @@ L_SESSION.fullScreen = function (id) {
 		if (remoteStreams[r].getID() === id) {
 			L_SESSION.add_div_to_grid(remoteStreams[r].getID(), 'main');
 			remoteStreams[r].play(remoteStreams[r].getID());
-			L_SESSION.rewriteBar(remoteStreams[r].getID(), remoteStreams[r].getAttributes().name, false, true);
+			L_SESSION.rewriteBar(remoteStreams[r].getID(), remoteStreams[r].getAttributes().name, false, true, fixed);
 		}
 
 		if (remoteStreams[r].getID() !== id && L_SESSION.localStream.getID() !== remoteStreams[r].getID()) {
 			L_SESSION.add_div_to_grid(remoteStreams[r].getID(), 'mini');
 			remoteStreams[r].play(remoteStreams[r].getID());
-			L_SESSION.rewriteBar(remoteStreams[r].getID(), remoteStreams[r].getAttributes().name);
+			L_SESSION.rewriteBar(remoteStreams[r].getID(), remoteStreams[r].getAttributes().name, undefined, undefined, fixed);
 		}
 	}
 
@@ -353,7 +353,7 @@ L_SESSION.shareDesktop = function () {
 	}
 }
 
-L_SESSION.rewriteBar = function (id, username, local, full) {
+L_SESSION.rewriteBar = function (id, username, local, full, fixed) {
 
 	//$('#player_' + id).append('<img id="muted_' + id + '" class="muted_icon hidden" src="/images/no_camera_icon.svg"></img>');
 
@@ -376,7 +376,7 @@ L_SESSION.rewriteBar = function (id, username, local, full) {
 
 	$('#subbar_' + id).append('<p class="username_lab">' + username + '</p>');
 	
-	$('#subbar_' + id).append('<i id="camera_' + id + '" class="fa fa-stop bar_tool"></i>');
+	$('#subbar_' + id).append('<i id="camera_' + id + '" class="fa fa-pause bar_tool"></i>');
 	$('#camera_' + id).click(function () {
 		L_SESSION.switchVideo(id);
 	});
@@ -390,7 +390,7 @@ L_SESSION.rewriteBar = function (id, username, local, full) {
 		} else {
 			$('#subbar_' + id).append('<i id="expand_' + id + '" class="fa fa-expand bar_tool"></i>');
 			$('#expand_' + id).click(function () {
-				L_SESSION.fullScreen(id);
+				L_SESSION.fullScreen(id, fixed);
 			});
 		}
 	}
@@ -401,5 +401,13 @@ L_SESSION.rewriteBar = function (id, username, local, full) {
 		$('#audio_' + id).click(function () {
 			L_SESSION.switchAudio();
 		});
+	}
+
+	if (fixed) {
+
+		$('#player_' + id)[0].onmouseover = undefined;
+		$('#player_' + id)[0].onmouseout = undefined;
+		
+		L_SESSION.displayed[id].player.bar.display();
 	}
 }

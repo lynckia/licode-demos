@@ -76,7 +76,7 @@ body {
 }
 
 .subbar {
-	background-color: rgba(0, 0, 0, 0.4) !important;
+	background-color: rgba(0, 0, 0, 0) !important;
 	height: 100% !important;
 	max-height: none !important;
 }
@@ -115,15 +115,14 @@ body {
 }
 
 .username_lab {
-	color: white;
-	position: absolute;
-	left: 13px;
-	top: 10px;
-	font-size: 12px;
-	margin-top: 0 !important;
-}
-
-.modal{
-	border-radius: 0;
-	top: 65%;
+    color: white;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 12px;
+    margin-top: 0 !important;
+    background-color: blue;
+    width: 25%;
+    padding: 10px 20px;
+    height: 20px;
 }

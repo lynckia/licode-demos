@@ -39,7 +39,7 @@ DEMO.init_demo = function (my_name) {
 
       stream.play('video' + stream.getID());
       L_SESSION.displayed[stream.getID()] = stream;
-      L_SESSION.rewriteBar(stream.getID(), stream.getAttributes().name);
+      L_SESSION.rewriteBar(stream.getID(), stream.getAttributes().name, undefined, undefined, true);
     });
 
     room.addEventListener("stream-added", function (streamEvent) {
