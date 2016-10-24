@@ -21,14 +21,26 @@ body {
 	position: absolute;
 	top: 20px;
 	left: 30px;
-	width: 200px;
+	width: 150px;
 
 }
 .logo2{
 	position: absolute;
 	top: 20px;
 	right: 10px;
-	width: 200px;
+	width: 150px;
+}
+.licode{
+	position: absolute;
+	opacity: .5;
+	width: 70px;
+	bottom: 60px;
+	right: 15px;
+}
+@media (max-width: 980px){
+	.licode{
+		bottom: 20px;
+	}
 }
 #container_demo {
 	width: 90% !important;
@@ -36,7 +48,7 @@ body {
 }
 
 #video_layout {
-	height: 700px;
+	height: 650px;
 	position: relative;
 	top: 30px;
 }
