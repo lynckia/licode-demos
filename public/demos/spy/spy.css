@@ -58,7 +58,7 @@ body {
 	}
 }
 .player{
-	border: 5px #5bc0de solid;
+	/*border: 5px #5bc0de solid;*/
 	box-shadow: 2px 2px 6px #1a6a82;
 }
 
@@ -115,14 +115,14 @@ body {
 }
 
 .username_lab {
+		background-color: #5bc0de;
+		position: absolute;
+		top: 0;
+		left: 0;
+		text-align: center;
     color: white;
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    font-size: 12px;
-    margin-top: 0 !important;
-    background-color: blue;
-    width: 25%;
-    padding: 10px 20px;
-    height: 20px;
+    font-size: 1em;
+		padding: 8px 15px;
+		border-radius: 0 0 10px 0;
+
 }
