@@ -274,7 +274,7 @@ L_SESSION.fullScreen = function (id, fixed) {
 	resizeRemotes();
 }
 
-L_SESSION.regularScreen = function () {
+L_SESSION.regularScreen = function (fixed) {
 	fullScreen = false;
 	remove_all_divs();
 	var remoteStreams = L_SESSION.displayed;
@@ -286,7 +286,7 @@ L_SESSION.regularScreen = function () {
 				L_SESSION.add_div_to_grid(remoteStreams[r].getID());
 			}
 			remoteStreams[r].play(remoteStreams[r].getID());
-			L_SESSION.rewriteBar(remoteStreams[r].getID(), remoteStreams[r].getAttributes().name);
+			L_SESSION.rewriteBar(remoteStreams[r].getID(), remoteStreams[r].getAttributes().name, undefined, undefined, fixed);
 		}
 	}
 
@@ -385,7 +385,7 @@ L_SESSION.rewriteBar = function (id, username, local, full, fixed) {
 		if (full) {
 			$('#subbar_' + id).append('<i id="expand_' + id + '" class="fa fa-compress bar_tool"></i>');
 			$('#expand_' + id).click(function () {
-				L_SESSION.regularScreen();
+				L_SESSION.regularScreen(fixed);
 			});
 		} else {
 			$('#subbar_' + id).append('<i id="expand_' + id + '" class="fa fa-expand bar_tool"></i>');
