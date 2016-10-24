@@ -34,12 +34,20 @@ DEMO.init_demo = function (my_name) {
     room.addEventListener("stream-subscribed", function(streamEvent) {
       var stream = streamEvent.stream;
       
-      if (stream.hasScreen()) L_SESSION.add_div_to_grid('video' + stream.getID(), 'mini');
-      else L_SESSION.add_div_to_grid('video' + stream.getID(), 'main');
+      if (stream.hasScreen()) {
+        L_SESSION.add_div_to_grid('video' + stream.getID(), 'mini');
+        stream.play('video' + stream.getID());
+        L_SESSION.displayed[stream.getID()] = stream;
+        L_SESSION.rewriteBar(stream.getID(), undefined, undefined, undefined, true);
+      }
+      else {
+        L_SESSION.add_div_to_grid('video' + stream.getID(), 'main');
+        stream.play('video' + stream.getID());
+        L_SESSION.displayed[stream.getID()] = stream;
+        L_SESSION.rewriteBar(stream.getID(), stream.getAttributes().name, undefined, undefined, true);
+      }
 
-      stream.play('video' + stream.getID());
-      L_SESSION.displayed[stream.getID()] = stream;
-      L_SESSION.rewriteBar(stream.getID(), stream.getAttributes().name, undefined, undefined, true);
+      
     });
 
     room.addEventListener("stream-added", function (streamEvent) {

@@ -266,7 +266,7 @@ L_SESSION.fullScreen = function (id, fixed) {
 		if (remoteStreams[r].getID() !== id && L_SESSION.localStream.getID() !== remoteStreams[r].getID()) {
 			L_SESSION.add_div_to_grid(remoteStreams[r].getID(), 'mini');
 			remoteStreams[r].play(remoteStreams[r].getID());
-			L_SESSION.rewriteBar(remoteStreams[r].getID(), remoteStreams[r].getAttributes().name, undefined, undefined, fixed);
+			L_SESSION.rewriteBar(remoteStreams[r].getID(), undefined, undefined, undefined, fixed);
 		}
 	}
 
@@ -279,14 +279,18 @@ L_SESSION.regularScreen = function (fixed) {
 	remove_all_divs();
 	var remoteStreams = L_SESSION.displayed;
 	for (var r in remoteStreams) {
+		var stream = remoteStreams[r];
 		if (L_SESSION.localStream.getID() !== remoteStreams[r].getID()) {
-			if (remoteStreams[r].hasScreen() && L_SESSION.screens_always_in_mini) {
-				L_SESSION.add_div_to_grid(remoteStreams[r].getID(), 'mini');
+			if (stream.hasScreen() && L_SESSION.screens_always_in_mini) {
+				L_SESSION.add_div_to_grid(stream.getID(), 'mini');
+				stream.play(stream.getID());
+				L_SESSION.rewriteBar(stream.getID(), undefined, undefined, undefined, fixed);
 			} else {
-				L_SESSION.add_div_to_grid(remoteStreams[r].getID());
+				L_SESSION.add_div_to_grid(stream.getID());
+				stream.play(stream.getID());
+				L_SESSION.rewriteBar(stream.getID(), stream.getAttributes().name, undefined, undefined, fixed);
 			}
-			remoteStreams[r].play(remoteStreams[r].getID());
-			L_SESSION.rewriteBar(remoteStreams[r].getID(), remoteStreams[r].getAttributes().name, undefined, undefined, fixed);
+			
 		}
 	}
 
@@ -374,7 +378,7 @@ L_SESSION.rewriteBar = function (id, username, local, full, fixed) {
 	$('#subbar_' + id).find('div').addClass('speaker');
 	$('#subbar_' + id).find('div').addClass('bar_tool');
 
-	$('#subbar_' + id).append('<p class="username_lab">' + username + '</p>');
+	if (username) $('#subbar_' + id).append('<p class="username_lab">' + username + '</p>');
 	
 	$('#subbar_' + id).append('<i id="camera_' + id + '" class="fa fa-pause bar_tool"></i>');
 	$('#camera_' + id).click(function () {
