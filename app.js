@@ -11,7 +11,7 @@ var config = require('./config')
 var app = express();
 
 // all environments
-app.set('port', process.env.PORT || 80);
+app.set('port', config.http_port || 80);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
@@ -75,5 +75,5 @@ if (config.https) {
         cert: fs.readFileSync('cert/cert.pem').toString()
     };
     var server = https.createServer(options, app);
-    server.listen(443);
+    server.listen(config.https_port || 443);
 }

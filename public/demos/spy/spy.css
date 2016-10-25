@@ -58,7 +58,6 @@ body {
 	}
 }
 .player{
-	/*border: 5px #5bc0de solid;*/
 	box-shadow: 2px 2px 6px #1a6a82;
 }
 
@@ -83,11 +82,12 @@ body {
 
 .speaker {
 	width: 23px !important;
-    height: 19px !important;
-    right: none !important;
-    left: 37px;
-    bottom: 7px;
+  height: 19px !important;
+  right: none !important;
+  left: 37px;
+  bottom: 7px;
 }
+
 
 .bar_tool.fa-play, .bar_tool.fa-pause {
 	color: white;
@@ -106,8 +106,11 @@ body {
 .bar_tool.fa-expand, .bar_tool.fa-compress {
 	color: white;
 	position: absolute;
-	right: 15px;
-	bottom: 10px;
+	right: 8px;
+	bottom: 5px;
+	background-color: #5bc0de;
+	padding: 5px;
+	border-radius: 11px;
 }
 
 .bar_tool {
