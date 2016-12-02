@@ -74,6 +74,14 @@ if (config.https) {
         key: fs.readFileSync('cert/key.pem').toString(),
         cert: fs.readFileSync('cert/cert.pem').toString()
     };
+
+    if (config.ca_certs) {
+        options.ca = [];
+        for (var ca in config.ca_certs) {
+            options.ca.push(fs.readFileSync('cert/' + config.ca_certs[ca]).toString());
+        }
+    }
+    console.log(options.ca);
     var server = https.createServer(options, app);
     server.listen(config.https_port || 443);
 }

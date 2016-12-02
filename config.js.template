@@ -10,6 +10,7 @@ config.demo_host = ''; // Without "http", just the host.
 config.http_port = 80;
 config.https = false;
 config.https_port = 443;
+config.ca_certs = undefined;
 
 //config.plain = true;
 
