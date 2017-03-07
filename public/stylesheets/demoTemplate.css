@@ -17,6 +17,10 @@
     padding-left: 3px;
 }
 
+#connection_panel form {
+    margin-bottom: 0;
+}
+
 #chat_switcher {
     background-color: #012C79;
     position: absolute;

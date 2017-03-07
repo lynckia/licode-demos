@@ -53,14 +53,16 @@
               <button type="button" class="close close_button" aria-hidden="true">&times;</button>
               <h4 class="modal-title">Connect to the demo</h4>
             </div>
-            <div class="modal-body">
-              <p>Please, enter your name:</p>
-              <input type="text" id="username_txt" placeholder="Username">
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default  close_button">Cancel</button>
-              <button id="connect_button" type="button" class="btn btn-primary">Connect</button> 
-            </div>
+            <form id="connect_form">
+              <div class="modal-body">
+                <p>Please, enter your name:</p>
+                <input type="text" id="username_txt" placeholder="Username" required>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default  close_button">Cancel</button>
+                <button id="connect_button" type="sumbit" class="btn btn-primary">Connect</button> 
+              </div>
+            </form>
           </div>
         </div>
       </div>

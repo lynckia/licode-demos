@@ -116,9 +116,9 @@ window.onload = function () {
         add_text_to_chat(msg.msg, '');
     }
 
-    var connect_user = function () {
-        $('#connection_panel').modal('hide');
+    var connect_user = function (e) {
         my_name = document.getElementById('username_txt').value;
+        $('#connection_panel').modal('hide');
         DEMO.init_demo(my_name);
     }
 
@@ -130,7 +130,10 @@ window.onload = function () {
       return true;
     }
 
-    document.getElementById('connect_button').onclick = connect_user;
+    document.getElementById('connect_form').onsubmit = function (event) {
+        event.preventDefault(); 
+        connect_user();
+    }
 
     document.getElementById('chat_button').onclick = function () {
         $('#users_button').removeClass('active');
