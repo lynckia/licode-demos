@@ -6,7 +6,7 @@ DEMO.init_demo = function (my_name) {
 
   var screen = true;
   screen_stream = Erizo.Stream({screen: screen, attributes: {name: 'Pantalla Compartida', user_id: my_id}});
-  localStream = Erizo.Stream({audio: true, video: true, data: true, screen: false, attributes: {name: my_name, user_id: my_id}});
+  screen_stream = Erizo.Stream({screen: screen, video: {mandatory: {maxWidth: 1280, maxHeight: 720}}, attributes: {name: 'Pantalla Compartida', user_id: my_id}});
   DEMO.chat_stream = localStream;
   
   DEMO.create_token(my_name, "presenter", function (response) {
