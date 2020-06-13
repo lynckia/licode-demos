@@ -1,8 +1,8 @@
-<% include partials/demo/top %>
+<%- include ('partials/demo/top') %>
 
 <% if (!plain) { %>
 
-<% include partials/demo/navBar %>
+<%- include ('partials/demo/navBar') %>
 
 <%}%>
 
@@ -80,7 +80,7 @@
 
 <% if (!plain) { %>
 
-<% include partials/demo/footer %>
+<%- include ('partials/demo/footer') %>
 
 <%}%>
-<% include partials/demo/bottom %>
+<%- include ('partials/demo/bottom') %>
