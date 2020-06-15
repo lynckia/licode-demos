@@ -1,5 +1,4 @@
 var express = require('express');
-//var cookieParser = require('cookie-parser')
 var cookieSession = require('cookie-session')
 var morgan = require('morgan')
 var errorhandler = require('errorhandler')
