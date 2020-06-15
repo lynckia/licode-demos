@@ -1,4 +1,9 @@
 var express = require('express');
+//var cookieParser = require('cookie-parser')
+var cookieSession = require('cookie-session')
+var morgan = require('morgan')
+var errorhandler = require('errorhandler')
+var compression = require('compression')
 var public = require('./routes/public');
 var admin = require('./routes/admin');
 var rest = require('./routes/rest');
@@ -32,20 +37,18 @@ app.use(function (req, res, next) {
     }
 });
 
-app.use(express.cookieParser('asdaggftyuoplfgd'));
-app.use(express.cookieSession());
-app.use(express.favicon());
-app.use(express.logger('dev'));
+app.use(cookieSession({
+    keys: ['asdaggftyuoplfgd']
+}));
+app.use(morgan('tiny'));
 app.use(express.json());
-app.use(express.urlencoded());
-app.use(express.methodOverride());
-app.use(app.router);
+app.use(express.urlencoded({ extended: true }));
+app.use(compression())
 app.use(express.static(path.join(__dirname, 'public')));
-
 
 // development only
 if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
+  app.use(errorhandler());
 }
 
 app.get('/', public.index);
