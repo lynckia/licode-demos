@@ -16,13 +16,13 @@
       <%}%>
 
       <div class="row">
-        <div id="video_grid" class="span9">
+        <div id="video_grid" class="col-md-9">
 
             <%- body %>
 
         </div>
 
-        <div id="chat" class="span3 visible-desktop">
+        <div id="chat" class="col-md-3 visible-desktop">
 
           <% if (!plain) { %>
           <img src="/images/star.svg" id="star_logo_demo"/>
@@ -46,8 +46,8 @@
         </div>
       </div>
 
-      <div class="modal" id="connection_panel">
-        <div class="modal-dialog">
+      <div class="modal fade" id="connection_panel" role="dialog">
+        <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close close_button" aria-hidden="true">&times;</button>
