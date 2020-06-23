@@ -27,12 +27,13 @@ DEMO.create_token = function(userName, role, callback) {
 }
 
 DEMO.resizeVideos = function (local, remotes) {
-    local.player.resize();
-    for (var r in remotes) {
+   /* local.player.resize();
+   // for (var r in remotes) {
         if ((remotes[r].hasVideo() || remotes[r].hasScreen()) && remotes[r].showing) {
             remotes[r].player.resize();
         }
     }
+*/
 }
 
 window.onload = function () {
