@@ -24,7 +24,6 @@ DEMO.create_token = function(userName, role, callback) {
     req.open('POST', url, true);
     req.setRequestHeader('Content-Type', 'application/json');
     req.send(JSON.stringify(body));
-	console.log("creando token");
 }
 
 DEMO.resizeVideos = function (local, remotes) {
