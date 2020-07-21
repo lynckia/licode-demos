@@ -24,6 +24,7 @@ DEMO.create_token = function(userName, role, callback) {
     req.open('POST', url, true);
     req.setRequestHeader('Content-Type', 'application/json');
     req.send(JSON.stringify(body));
+	console.log("creando token");
 }
 
 DEMO.resizeVideos = function (local, remotes) {
@@ -123,13 +124,15 @@ window.onload = function () {
         DEMO.init_demo(my_name);
     }
 
-    document.getElementById('username_txt').onkeyup = function(e) {
+    // It is commented because it makes double connection when pressing enter
+  /*  document.getElementById('username_txt').onkeyup = function(e) {
       e = e || event;
       if (e.keyCode === 13) {
-          connect_user();
+         document.getElementById('connect_form').onsubmit();
       }
       return true;
     }
+*/
 
     document.getElementById('connect_form').onsubmit = function (event) {
         event.preventDefault(); 
