@@ -1,6 +1,6 @@
 var config = {};
 
-config.nuve_host = '';
+config.nuve_host = ''; // Like http://x.x.x.x:3000/
 config.service = {};
 config.service.id ='';
 config.service.key = '';

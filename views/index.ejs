@@ -1,8 +1,8 @@
-<% include partials/demo/top %>
+<%- include ('partials/demo/top') %>
 
 <% if (!plain) { %>
 
-<% include partials/demo/navBar %>
+<%- include ('partials/demo/navBar') %>
 
 <header class="jumbotron subhead" id="overview">
   <div class="container">
@@ -26,7 +26,7 @@
           <% 
             }
           %>
-            <div class="span4">
+            <div class="col-md-4">
               <div class="room_element">
                 <% 
                 if(rooms[r].p2p) {
@@ -71,8 +71,8 @@
 
 <% if (!plain) { %>
 
-<% include partials/demo/footer %>
+<%- include ('partials/demo/footer') %>
 
 <%}%>
 
-<% include partials/demo/bottom %>
+<%- include ('partials/demo/bottom') %>

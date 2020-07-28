@@ -27,12 +27,13 @@ DEMO.create_token = function(userName, role, callback) {
 }
 
 DEMO.resizeVideos = function (local, remotes) {
-    local.player.resize();
-    for (var r in remotes) {
+   /* local.player.resize();
+   // for (var r in remotes) {
         if ((remotes[r].hasVideo() || remotes[r].hasScreen()) && remotes[r].showing) {
             remotes[r].player.resize();
         }
     }
+*/
 }
 
 window.onload = function () {
@@ -122,13 +123,15 @@ window.onload = function () {
         DEMO.init_demo(my_name);
     }
 
-    document.getElementById('username_txt').onkeyup = function(e) {
+    // It is commented because it makes double connection when pressing enter
+  /*  document.getElementById('username_txt').onkeyup = function(e) {
       e = e || event;
       if (e.keyCode === 13) {
-          connect_user();
+         document.getElementById('connect_form').onsubmit();
       }
       return true;
     }
+*/
 
     document.getElementById('connect_form').onsubmit = function (event) {
         event.preventDefault(); 
